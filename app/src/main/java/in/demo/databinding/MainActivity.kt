@@ -14,14 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val mainViewModel = ViewModelProviders.of(this)
             .get(MainViewModel::class.java)
 
+        /**
+         * This is Data Binding Specific Code & to bind views by auto generating binding class
+         */
         DataBindingUtil.setContentView<ActivityMainBinding>(
             this, R.layout.activity_main
         ).apply {
+            // here we are using LiveData<> so need lifecycleOwner
             this.lifecycleOwner = this@MainActivity
+            // In Layout we have variable view model so here just give reference of instance which was created above
             this.viewmodel = mainViewModel
         }
 

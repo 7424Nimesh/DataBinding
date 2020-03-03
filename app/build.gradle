@@ -24,6 +24,9 @@ android {
         }
     }
 
+    /**
+     * set data binding flag true to use DataBinding feature
+     */
     dataBinding {
         enabled = true
     }
